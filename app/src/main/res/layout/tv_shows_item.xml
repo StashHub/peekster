@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tv"
+            type="com.assoft.peekster.data.mediasource.TvShow" />
+
+        <variable
+            name="listener"
+            type="com.assoft.peekster.activity.MainEventListener" />
+    </data>
+
+    <com.assoft.peekster.util.RoundCornerFrameLayout
+        android:id="@+id/round_corner_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="@dimen/grid_1"
+        android:background="@color/background_color_db"
+        android:clickable="true"
+        android:focusable="true"
+        app:corner_radius="@dimen/grid_0_5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:clickable="false"
+                android:focusable="true"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadThumbnail="@{tv.thumbnail}"
+                app:srcCompat="@drawable/ic_default_img"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/grid_2"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="?attr/colorSurface"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/duration"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/iv_poster"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_goneMarginEnd="@dimen/grid_3"
+                tools:text="Prison Break" />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/grid_2"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?attr/colorSurface"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/iv_poster"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_goneMarginEnd="@dimen/grid_3"
+                app:tvDuration="@{tv}"
+                tools:text="41 min" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.assoft.peekster.util.RoundCornerFrameLayout>
+</layout>

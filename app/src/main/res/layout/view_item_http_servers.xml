@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_1"
+        android:layout_marginStart="@dimen/grid_1"
+        android:layout_marginEnd="@dimen/grid_1"
+        android:background="@color/background_color_db">
+
+        <com.assoft.peekster.util.RoundCornerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_1"
+            android:padding="@dimen/grid_1"
+            app:corner_radius="@dimen/grid_0_5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/media_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/grid_1"
+                    android:paddingEnd="@dimen/grid_1"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="16sp"
+                    app:drawableTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_goneMarginEnd="@dimen/grid_2"
+                    tools:text="Low Rider - Fish Dance (Antigua)" />
+
+                <TextView
+                    android:id="@+id/http_url"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_1"
+                    android:paddingTop="@dimen/grid_1"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="14sp"
+                    app:drawableTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/media_name"
+                    tools:text="http://192.168.130.9999/" />
+
+                <TextView
+                    android:id="@+id/http_server_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_1"
+                    android:paddingTop="@dimen/grid_1"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="12sp"
+                    android:paddingBottom="@dimen/grid_2"
+                    app:drawableTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/http_url"
+                    tools:text="Device streaming content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/server_action"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/grid_1"
+                    android:layout_marginTop="@dimen/grid_1"
+                    android:textColor="@color/colorError"
+                    android:text="@string/adapter_stop_server"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/http_server_status" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/share_action"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/grid_1"
+                    android:layout_marginTop="@dimen/grid_1"
+                    android:layout_marginEnd="@dimen/grid_2"
+                    android:text="@string/adapter_share_url"
+                    android:textColor="?attr/colorSurface"
+                    app:layout_constraintEnd_toStartOf="@+id/server_action"
+                    app:layout_constraintHorizontal_bias="0.98"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/http_server_status" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.assoft.peekster.util.RoundCornerFrameLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/grid_1"
+    android:paddingEnd="@dimen/grid_1"
+    android:paddingBottom="@dimen/grid_4">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_2"
+        android:layout_marginEnd="@dimen/grid_2"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:hint="Username">
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="@string/hint_username"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_2"
+        android:layout_marginTop="@dimen/grid_2"
+        android:layout_marginEnd="@dimen/grid_2"
+        android:layout_marginBottom="@dimen/grid_2"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_username"
+        tools:hint="Password">
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="@string/hint_password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

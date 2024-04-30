@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_color">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/plane_04"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/ic_close"
+                app:title="@string/local_network_title"
+                app:titleTextAppearance="?attr/textAppearanceHeadline5"
+                app:titleTextColor="?attr/colorSurface" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <FrameLayout
+            android:id="@+id/streaming_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.38" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animated_view"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/grid_3"
+                    android:fitsSystemWindows="true"
+                    android:importantForAccessibility="no"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_enableMergePathsForKitKatAndAbove="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/equalizer" />
+
+                <TextView
+                    android:id="@+id/media_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_2"
+                    android:ellipsize="end"
+                    android:layout_marginEnd="@dimen/grid_2"
+                    android:lineSpacingExtra="@dimen/grid_0_25"
+                    android:layout_marginTop="@dimen/grid_3"
+                    android:singleLine="true"
+                    android:textAlignment="textStart"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="?colorSurface"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guideline"
+                    app:layout_goneMarginEnd="@dimen/grid_2"
+                    tools:text="Prison Break" />
+
+                <TextView
+                    android:id="@+id/http_url"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_2"
+                    android:paddingTop="@dimen/grid_1"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="18sp"
+                    app:drawableTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/media_title"
+                    tools:text="http://192.168.130.9999/" />
+
+                <TextView
+                    android:id="@+id/http_server_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_2"
+                    android:paddingTop="@dimen/grid_1"
+                    android:paddingBottom="@dimen/grid_2"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    app:drawableTint="?attr/colorAccent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/http_url"
+                    tools:text="Device streaming content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/server_action"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/grid_1"
+                    android:layout_marginTop="@dimen/grid_2"
+                    android:text="@string/adapter_stop_server"
+                    android:textColor="@color/colorError"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.073"
+                    app:layout_constraintStart_toEndOf="@+id/share_action"
+                    app:layout_constraintTop_toBottomOf="@id/http_server_status" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/share_action"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/grid_1"
+                    android:layout_marginTop="@dimen/grid_1"
+                    android:layout_marginEnd="@dimen/grid_2"
+                    android:text="@string/adapter_share_url"
+                    android:textColor="?attr/colorSurface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/http_server_status" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/no_active_servers"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?attr/colorSurface" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/grid_2"
+            app:srcCompat="@drawable/ic_publish_24px" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/background_color"
+        tools:context=".activity.MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:elevation="@dimen/plane_04"
+                android:fitsSystemWindows="true"
+                app:title="@string/app_name"
+                app:titleTextAppearance="?attr/textAppearanceHeadline5"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end"
+            android:paddingStart="@dimen/grid_2"
+            android:paddingEnd="@dimen/grid_2"
+            android:paddingBottom="@dimen/grid_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            fab:menu_backgroundColor="?attr/scrimBackground"
+            fab:menu_colorNormal="?attr/colorSecondary"
+            fab:menu_colorPressed="?attr/colorSecondaryVariant"
+            fab:menu_colorRipple="?attr/colorAccent"
+            fab:menu_fab_hide_animation="@anim/fab_close"
+            fab:menu_fab_show_animation="@anim/fab_open"
+            fab:menu_icon="@drawable/add_icon">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/stream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cast_"
+                app:fab_colorNormal="?attr/colorSecondary"
+                app:fab_colorPressed="?attr/colorSecondary"
+                app:fab_colorRipple="?attr/colorAccent"
+                app:fab_shadowColor="#20000000"
+                fab:fab_label="@string/local_network_title" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/share_files"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_import_export_24px"
+                app:fab_colorNormal="?attr/colorSecondary"
+                app:fab_colorPressed="?attr/colorSecondary"
+                app:fab_colorRipple="?attr/colorAccent"
+                app:fab_shadowColor="#20000000"
+                fab:fab_label="Transfer" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/add_movies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_movie_24px"
+                app:fab_colorNormal="?attr/colorSecondary"
+                app:fab_colorPressed="?attr/colorSecondary"
+                app:fab_colorRipple="?attr/colorAccent"
+                app:fab_shadowColor="#20000000"
+                fab:fab_label="Movie" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/add_tv_shows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ondemand_video_24px"
+                app:fab_colorNormal="?attr/colorSecondary"
+                app:fab_colorPressed="?attr/colorSecondary"
+                app:fab_colorRipple="?attr/colorAccent"
+                app:fab_shadowColor="#20000000"
+                fab:fab_label="Tv Show" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/add_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_audiotrack_24px"
+                app:fab_colorNormal="?attr/colorSecondary"
+                app:fab_colorPressed="?attr/colorSecondary"
+                app:fab_colorRipple="?attr/colorAccent"
+                app:fab_shadowColor="#20000000"
+                fab:fab_label="Audio" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+        <fragment
+            android:id="@+id/bottom_sheet_layout"
+            android:name="com.assoft.peekster.nav.BottomChildDrawerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

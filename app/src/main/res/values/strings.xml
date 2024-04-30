@@ -1,0 +1,142 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Peekster</string>
+    <string name="transfer_title">File Transfer</string>
+    <string name="local_network_title">Stream</string>
+
+    <string name="kid_mode">Kid Mode</string>
+    <string name="kid_mode_description">Restrict kids from watching explicit adult content marked by content providers</string>
+
+    <string name="category">Category</string>
+    <string name="action_enable">Enable</string>
+    <string name="action_remove">Remove</string>
+
+    <string name="see_all">See All</string>
+    <string name="video_duration">%1$d min</string>
+    <string name="audio_duration">%1$d min %2$d sec</string>
+    <string name="total_duration">\-%1$s</string>
+    <string name="default_time">00\:00</string>
+    <string name="toolbar_title">%1$s \| \(%2$s\)</string>
+    <string name="hint_category">Select Category</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="smb_message">The computer (%s) you are trying to connect to requires authentication. Please provide a username and a password.</string>
+    <string name="hint_select_directory">Select Directory</string>
+    <string name="encountered_error_title">Oops, something went wrong</string>
+    <string name="encountered_error_message">Error occurred, try again</string>
+    <string name="unknown">Unknown</string>
+
+    <string name="disconnected_ip">%s disconnected</string>
+    <string name="connected_ip">%s connected</string>
+
+    <string name="action_setup">Setup</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_ask">Ask</string>
+    <string name="action_reject">Reject</string>
+    <string name="action_close">Close</string>
+    <string name="action_all_done">All Done</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_search">Search</string>
+
+    <string name="device_name">Device Name</string>
+
+    <string name="url_clipboard">URL has been copied to the clipboard.</string>
+
+    <string name="chrome_cast">Chrome Cast</string>
+    <string name="manage_devices">Manage devices</string>
+
+    <string name="secure_exit">Press again to exit</string>
+    <string name="notification_channel_high">Important notifications</string>
+    <string name="notification_channel_low">Low priority notifications</string>
+
+    <!-- Transfer service -->
+    <string name="service_transfer_title">Peekster Transfer</string>
+    <string name="service_transfer_action_stop">Stop</string>
+    <string name="service_transfer_action_retry">Retry</string>
+    <string name="service_transfer_server_title">Peekster Service</string>
+    <string name="service_transfer_server_listening_text">Peekster listening for incoming transfers</string>
+    <string name="service_transfer_status_connecting">Connecting to %1$s…</string>
+    <string name="service_transfer_status_receiving">Receiving items from %1$s…</string>
+    <string name="service_transfer_status_sending">Sending items to %1$s…</string>
+    <string name="service_transfer_status_success">Transfer with %1$s completed</string>
+    <string name="service_transfer_status_error">Transfer with %1$s failed: %2$s</string>
+    <string name="service_transfer_unknown_device">[Unknown]</string>
+    <string name="service_transfer_notification_url">URL</string>
+
+    <!-- Transfer notification manager -->
+    <string name="channel_service_name">Transfer Service</string>
+    <string name="channel_transfer_name">Ongoing Transfers</string>
+    <string name="channel_notification_name">Transfer Completion</string>
+
+    <!-- Transfer adapter -->
+    <string name="adapter_transfer_connecting">Connecting…</string>
+    <string name="adapter_transfer_transferring">Transferring: %1$d%%</string>
+    <string name="adapter_transfer_failed">Failed: %1$s</string>
+    <string name="adapter_transfer_succeeded">Succeeded</string>
+    <string name="adapter_transfer_unknown">Unknown</string>
+    <string name="adapter_transfer_bytes">%1$s / %2$s</string>
+    <string name="adapter_transfer_stop">Stop</string>
+    <string name="adapter_transfer_retry">Retry</string>
+    <string name="adapter_stop_server">Stop Server</string>
+    <string name="adapter_start_server">Start Server</string>
+    <string name="adapter_share_url">Share</string>
+    <string name="share_url">Share URL</string>
+
+    <!-- Server status -->
+    <string name="server_closed">Connection closed</string>
+    <string name="server_open">Connection open</string>
+
+    <string name="activity_transfer_empty_text">No transfers in progress</string>
+    <string name="no_active_servers">No media streaming</string>
+    <string name="activity_local_network_text">Searching for local networks…</string>
+    <string name="activity_share_label">Select a device from the list below to receive the transfer:</string>
+    <string name="activity_stream_share">Select a device from the list below to receive the stream:</string>
+
+    <!-- Settings activity -->
+    <string name="activity_settings">Settings</string>
+    <string name="activity_settings_category_general">General</string>
+    <string name="activity_settings_pref_device_name">Device Name</string>
+    <string name="activity_settings_pref_transfer_directory">Transfer Directory</string>
+    <string name="activity_settings_pref_behavior_receive">Receive Transfers</string>
+    <string name="activity_settings_pref_behavior_receive_summary">Accept incoming transfers from other devices</string>
+    <string name="activity_settings_pref_behavior_overwrite">Overwrite</string>
+    <string name="activity_settings_pref_behavior_overwrite_summary">Replace existing files with the same name</string>
+    <string name="activity_settings_category_notifications">Notifications</string>
+    <string name="activity_settings_pref_notification_sound">Notification Sound</string>
+    <string name="activity_settings_pref_notification_sound_summary">Play sound when a transfer completes</string>
+
+    <!-- titles -->
+    <string name="permissions">Permissions</string>
+    <string name="permission_message">Allow the following permissions for Peekster to work best</string>
+    <string name="storage_message">Enable Peekster to read and write to your device\'s storage for receiving and sharing files.</string>
+    <string name="phone_state_message">Allow Peekster to access your device\'s phone state to create a unique identifier.</string>
+
+    <string name="set_up_profile">Setup Profile</string>
+    <string name="set_up_profile_message">This is the device identifier number which help other devices recognize you.</string>
+
+    <string name="request_permission_storage">Storage permission</string>
+    <string name="request_permission_storage_summary">This permission allows Peekster to read and write to your device\'s storage for receiving and sharing files.</string>
+
+    <string name="request_permission_read_phone_state">Permission to read phone state</string>
+    <string name="request_permission_read_phone_state_summary">Peekster needs to access your device\'s serial number to create a long-term identity number, helping other devices recognize you</string>
+
+
+    <string name="home">Home</string>
+    <string name="movies">Movies</string>
+    <string name="recent_news">Da Nang International Fireworks Festival 2017</string>
+    <string name="in_news">Da Nang International Fireworks Festival 2017Update: Dec 08, 2016 (TITC) - Da Nang International Fireworks Festival 2017 (DIFF 2017) with the theme “Shining Marble Mountains” will take place for two months, from 29 April to 24 June 2017 with the aim to Da Nang become a unique cultural festival tourism space. </string>
+    <string name="publish_date">2017-04-30 12:13:14</string>
+    <string name="language">LANGUAGE</string>
+    <string name="genre">GENRE</string>
+    <string name="published_on">FORMAT</string>
+    <string name="released_on">RELEASED</string>
+    <string name="rating">RATING</string>
+    <string name="country">COUNTRY</string>
+    <string name="select_directory">Select Directory</string>
+    <string name="ok">OK</string>
+    <string name="cancle">CANCLE</string>
+    <string name="select">select</string>
+
+    <string name="lorem_placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+</resources>

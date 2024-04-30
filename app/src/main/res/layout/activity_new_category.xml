@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.assoft.peekster.database.entities.Category" />
+
+        <variable
+            name="viewModel"
+            type="com.assoft.peekster.activity.MediaViewModel" />
+
+        <variable
+            name="listener"
+            type="com.assoft.peekster.activity.MainEventListener" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color"
+            tools:context=".activity.CategoryActivity">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/plane_04"
+                android:fitsSystemWindows="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/ic_close"
+                app:title="Add Category"
+                app:titleTextAppearance="?attr/textAppearanceHeadline5"
+                app:titleTextColor="?attr/colorSurface" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/grid_2"
+                android:layout_marginTop="@dimen/grid_4"
+                android:layout_marginEnd="@dimen/grid_2"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                tools:hint="Category Name">
+
+                <EditText
+                    android:id="@+id/et_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/hint_category"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:text="@={viewModel.newCategory}"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="?attr/colorSurface"
+                    tools:ignore="LabelFor"
+                    tools:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_directory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/grid_2"
+                android:layout_marginTop="@dimen/grid_4"
+                android:layout_marginEnd="@dimen/grid_2"
+                app:endIconDrawable="@drawable/ic_folder"
+                app:endIconMode="custom"
+                app:endIconTint="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_input_category">
+
+                <EditText
+                    android:id="@+id/et_directory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/hint_select_directory"
+                    android:importantForAutofill="no"
+                    android:inputType="none"
+                    android:longClickable="false"
+                    android:text="@={viewModel.directory}"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="?attr/colorSurface"
+                    tools:ignore="LabelFor" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right|end"
+            android:layout_margin="@dimen/grid_2"
+            android:backgroundTint="@color/colorAccent"
+            android:src="@drawable/ic_check_black_24dp"
+            app:fabSize="normal" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

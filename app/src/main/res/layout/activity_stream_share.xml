@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/grid_2"
+    android:paddingLeft="@dimen/grid_2"
+    android:paddingRight="@dimen/grid_2"
+    android:paddingTop="@dimen/grid_2">
+
+    <TextView
+        android:id="@+id/selectLabel"
+        android:text="@string/activity_stream_share"
+        android:layout_width="wrap_content"
+        android:lineSpacingExtra="1.5dp"
+        android:paddingTop="@dimen/grid_2"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorSurface"
+        android:paddingBottom="@dimen/grid_2" />
+
+    <ListView
+        android:id="@+id/selectList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectLabel" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"/>
+
+</RelativeLayout>

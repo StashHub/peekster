@@ -1,0 +1,220 @@
+/*
+ * Copyright 2019, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    /**
+     * compileSdkVersion specifies the Android API level Gradle should use to
+     * compile your app. This means your app can use the API features included in
+     * this API level and lower.
+     */
+    compileSdkVersion rootProject.compileSdkVersion
+
+    /**
+     * buildToolsVersion specifies the version of the SDK build tools, command-line
+     * utilities, and compiler that Gradle should use to build your app. You need to
+     * download the build tools using the SDK Manager.
+     *
+     * This property is optional because the plugin uses a recommended version of
+     * the build tools by default.
+     */
+    buildToolsVersion rootProject.builToolsVersion
+
+    /**
+     * The defaultConfig block encapsulates default settings and entries for all
+     * build variants, and can override some attributes in main/AndroidManifest.xml
+     * dynamically from the build system. You can configure product flavors to override
+     * these values for different versions of your app.
+     */
+    defaultConfig {
+        /**
+         * applicationId uniquely identifies the package for publishing.
+         * However, your source code should still reference the package name
+         * defined by the package attribute in the main/AndroidManifest.xml file.
+         */
+        applicationId "com.assoft.peekster"
+
+        /**
+         * Defines the minimum API level required to run the app.
+         */
+        minSdkVersion rootProject.minSdkVersion
+
+        /**
+         * Specifies the API level used to test the app.
+         */
+        targetSdkVersion rootProject.targetSdkVersion
+
+        /**
+         * Defines the version number of your app.
+         */
+        versionCode rootProject.versionCodeMobile
+
+        /**
+         * Defines a user-friendly version name for your app.
+         */
+        versionName rootProject.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    /**
+     * The buildTypes block is where you can configure multiple build types.
+     * By default, the build system defines two build types: debug and release. The
+     * debug build type is not explicitly shown in the default build configuration,
+     * but it includes debugging tools and is signed with the debug key. The release
+     * build type applies Proguard settings and is not signed by default.
+     */
+    buildTypes {
+        /**
+         * By default, Android Studio configures the release build type to enable code
+         * shrinking, using minifyEnabled, and specifies the Proguard settings file.
+         */
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    // Required for AR because it includes a library built with Java 8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kapt {
+        correctErrorTypes = true
+    }
+
+    // Target version of the generated JVM bytecode
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+/**
+ * The dependencies block in the module-level build configuration file
+ * specifies dependencies required to build only the module itself.
+ * To learn more, go to Add build dependencies.
+ */
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // [Androidx AppCompat]
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+
+    // [Androidx Constraint Layout]
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+
+    // [Material UI]
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    //implementation "com.steiner.videolan:libvlc-android:$rootProject.libvlcVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    // Permissions
+    implementation "com.nabinbhandari.android:permissions:$rootProject.permissionsVersion"
+
+    // Files Lister
+    implementation "yogesh.firzen:FilesLister:$rootProject.filelisterVersion"
+
+    // Fab
+    implementation "com.github.clans:fab:$rootProject.fabVersion"
+
+    // Volley
+    implementation "com.android.volley:volley:$rootProject.volleyVersion"
+
+    // Auto Images Slider
+    implementation "com.github.smarteist:autoimageslider:$rootProject.autoImagesSliderVersion"
+
+    // Koin for Android
+    implementation "org.koin:koin-android:$rootProject.koinVersion"
+
+    // Koin for ViewModel
+    implementation "org.koin:koin-android-viewmodel:$rootProject.koinVersion"
+
+    // [Airbnb Lottie]
+    implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
+
+    // Androidx KTX Core Functions
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    implementation "androidx.annotation:annotation:$rootProject.supportVersion"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.kotlinCoroutineVersion"
+
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime:$rootProject.lifecycleVersion"
+
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
+
+    // [ViewModel]
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    // [LiveData]
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+
+    // Data Binding
+    kapt "com.android.databinding:compiler:$rootProject.dataBindingCompilerVersion"
+
+    // Kotlin Standard Library (Stream ext, Duration ext, Name groups)
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+
+    // Timber
+    api "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    // Room
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    testImplementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    testImplementation "androidx.room:room-runtime:$rootProject.roomVersion"
+
+    // Instrumentation tests
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.rulesVersion"
+
+    // Local unit tests
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoKotlinVersion"
+    testImplementation "org.hamcrest:hamcrest-library:$rootProject.hamcrestVersion"
+
+
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+    implementation 'com.github.codekidX:storage-chooser:2.0.4.4'
+    kapt 'androidx.annotation:annotation:1.1.0'
+
+    implementation "org.videolan.android:libvlc-all:$rootProject.libvlcVersion"
+}

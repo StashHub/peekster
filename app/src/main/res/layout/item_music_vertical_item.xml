@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="audio"
+            type="com.assoft.peekster.data.mediasource.Audio" />
+
+        <variable
+            name="listener"
+            type="com.assoft.peekster.activity.MainEventListener" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="138dp"
+        android:layout_height="212dp"
+        android:padding="@dimen/grid_0_5">
+
+        <com.assoft.peekster.util.RoundCornerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:corner_radius="@dimen/grid_0_5">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/iv_poster"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:clickable="false"
+                    android:focusable="true"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_default_img"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/item_options"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/card_ripple"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_poster">
+
+                    <ImageView
+                        android:id="@+id/menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_dotted_icon"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/grid_1"
+                        android:clickable="false"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/grid_1"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="?attr/colorSurface"
+                        app:layout_constraintBottom_toTopOf="@+id/artist"
+                        app:layout_constraintEnd_toStartOf="@+id/menu"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Prison Break" />
+
+                    <TextView
+                        android:id="@+id/artist"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/grid_1"
+                        android:clickable="false"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?attr/colorSurface"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/menu"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/title"
+                        tools:text="Prison Break" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.assoft.peekster.util.RoundCornerFrameLayout>
+    </FrameLayout>
+</layout>

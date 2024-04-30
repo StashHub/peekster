@@ -1,0 +1,133 @@
+/*
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// Top-level build file where you can add configuration options common to all
+// sub-projects/modules.
+
+/**
+ * The build script block is where you configure the repositories and
+ * dependencies for Gradle itself—meaning, you should not include dependencies
+ * for your modules here. For example, this block includes the Android plugin for
+ * Gradle as a dependency because it provides the additional instructions Gradle
+ * needs to build Android app modules.
+ */
+buildscript {
+    ext{
+        // Application version
+        versionName = '1.0.0' // X.Y.Z; X = Major, Y = minor, Z = Patch level
+        versionCodeBase = 10000 // XYYZZM; M = Module (tv, mobile)
+        versionCodeMobile = versionCodeBase + 1
+
+        // SDK and tools
+        compileSdkVersion = 29
+        minSdkVersion = 21
+        targetSdkVersion = 29
+        builToolsVersion = '29.0.2'
+
+        // Application dependencies
+        androidGradlePluginVersion = '3.6.2'
+        autoImagesSliderVersion = '1.3.5'
+        appcompatVersion = '1.1.0'
+        constraintLayoutVersion = '2.0.0-beta7'
+        dataBindingCompilerVersion = '3.2.0-alpha04'
+        espressoVersion = '3.2.0'
+        fabVersion = '1.6.4'
+        filelisterVersion = '2.0.12'
+        glideVersion = '4.11.0'
+        gsonVersion = "2.8.1"
+        googleServicesVersion = '4.3.3'
+        hamcrestVersion = '1.3'
+        junitVersion = '4.12'
+        koinVersion = '2.0.1'
+        kotlinCoroutineVersion = '1.3.0'
+        kotlinVersion = '1.3.71'
+        ktxVersion = '1.3.0'
+        lifecycleVersion = '2.2.0'
+        lottieVersion = '3.4.0'
+        materialVersion = '1.1.0'
+        mockitoKotlinVersion = "1.5.0"
+        mockitoVersion = '2.25.0'
+        permissionsVersion = '3.8'
+        roomVersion = '2.2.5'
+        rulesVersion = '1.1.1'
+        runnerVersion = '1.1.1'
+        supportVersion = '1.0.0'
+        testExtVersion = '1.1.0'
+        timberVersion = '4.7.1'
+        volleyVersion = '1.1.1'
+        libvlcVersion = '3.3.0-eap15'
+    }
+
+    /**
+     * The repositories block configures the repositories Gradle uses to
+     * search or download the dependencies. Gradle pre-configures support for remote
+     * repositories such as JCenter, Maven Central, and Ivy. You can also use local
+     * repositories or define your own remote repositories. The code below defines
+     * JCenter as the repository Gradle should use to look for its dependencies.
+     *
+     * New projects created using Android Studio 3.0 and higher also include
+     * Google's Maven repository.
+     */
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://dl.bintray.com/videolan/Android" }
+    }
+
+    /**
+     * The dependencies block configures the dependencies Gradle needs to use
+     * to build your project. The following line adds Android plugin for Gradle
+     * version 3.5.3 as a classpath dependency.
+     */
+    dependencies {
+        classpath "com.android.tools.build:gradle:$androidGradlePluginVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+/**
+ * The all projects block is where you configure the repositories and
+ * dependencies used by all modules in your project, such as third-party plugins
+ * or libraries. However, you should configure module-specific dependencies in
+ * each module-level build.gradle file. For new projects, Android Studio
+ * includes JCenter and Google's Maven repository by default, but it does not
+ * configure any dependencies (unless you select a template that requires some).
+ */
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://dl.bintray.com/videolan/Android" }
+    }
+}
+
+configurations.all {
+    resolutionStrategy.force 'com.android.support:appcompat-v7:1.3.0'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

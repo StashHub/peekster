@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.assoft.peekster.database.entities.Category" />
+
+        <variable
+            name="viewModel"
+            type="com.assoft.peekster.activity.MediaViewModel" />
+
+        <variable
+            name="listener"
+            type="com.assoft.peekster.activity.MainEventListener" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layout_to_hide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_color"
+            android:paddingTop="@dimen/grid_4"
+            app:viewModel="@{viewModel}"
+            app:goneUnless="@{category}">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/grid_2" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/grid_2" />
+
+                <TextView
+                    android:id="@+id/category_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_only"
+                    android:text="@{category.name}"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textColor="?attr/colorSurface"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/movies" />
+
+                <ImageView
+                    android:id="@+id/menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_only"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{(theView) -> listener.openPopupMenu(theView, category)}"
+                    app:hideOptionUnless="@{!category.fixed}"
+                    app:layout_constraintBottom_toBottomOf="@+id/type"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toTopOf="@+id/type"
+                    app:srcCompat="@drawable/ic_dotted_icon"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/see_all"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_1"
+                    android:onClick="@{() -> listener.showAll(category)}"
+                    android:text="@string/see_all"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/lite_gray"
+                    app:hideOptionUnless="@{category.fixed}"
+                    app:layout_constraintBottom_toBottomOf="@+id/menu"
+                    app:layout_constraintEnd_toStartOf="@+id/menu"
+                    app:layout_constraintTop_toTopOf="@+id/menu"
+                    tools:text="See All" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1.5dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/grid_1"
+                    android:layout_marginTop="@dimen/grid_0_25"
+                    android:layout_marginBottom="@dimen/grid_0_25"
+                    android:background="@color/lite_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/category_name"
+                    app:layout_constraintStart_toEndOf="@+id/category_name"
+                    app:layout_constraintTop_toTopOf="@+id/category_name" />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_1"
+                    android:layout_marginEnd="@dimen/grid_2"
+                    android:text="@{category.type}"
+                    android:textAppearance="?attr/textAppearanceOverline"
+                    android:textColor="@color/lite_gray"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/category_name"
+                    app:layout_constraintEnd_toStartOf="@+id/see_all"
+                    app:layout_constraintStart_toEndOf="@+id/view"
+                    tools:text="@string/category" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="212dp"
+                    android:paddingTop="@dimen/grid_1"
+                    app:category="@{category}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/category_name"
+                    app:viewModel="@{viewModel}" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

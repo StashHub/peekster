@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) 2019 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+  in compliance with the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License
+  is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+  or implied. See the License for the specific language governing permissions and limitations under
+  the License.
+  -->
+<resources>
+
+    <style name="MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+        <item name="hintTextAppearance">@style/HintText</item>
+        <item name="errorTextAppearance">@style/ErrorText</item>
+        <item name="counterTextAppearance">@style/HintText</item>
+
+
+        <!-- Theme attributes -->
+        <item name="android:textColorHint">?attr/colorAccent</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorError">@android:color/holo_red_light</item>
+
+    </style>
+
+    <style name="ErrorText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/holo_red_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">?attr/colorSurface</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@color/background_color_db</item>
+    </style>
+
+    <style name="Widget.Peekster.DialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowBackground">?backgroundDialog</item>
+        <item name="buttonBarButtonStyle">@style/Widget.Peekster.ButtonStyle.Dialog</item>
+    </style>
+
+    <style name="Widget.Peekster.ButtonStyle.Dialog" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">@color/text_button_ripple_color</item>
+        <item name="android:textColor">@color/text_button_text_color_selector</item>
+    </style>
+
+    <style name="OverflowButton">
+        <item name="srcCompat">@drawable/ic_more_vertical_white_24dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="DividerStyle">
+        <item name="android:layout_height">3dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">?backgroundGradientBottom</item>
+    </style>
+</resources>

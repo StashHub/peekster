@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <FrameLayout
+            android:id="@+id/profile_container"
+            android:layout_width="@dimen/grid_9"
+            android:layout_height="@dimen/grid_9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/layout_profile_picture_image_default"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/layout_profile_picture_image_preferred"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?roundSelector"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end|bottom"
+                android:background="?rippleBackground"
+                android:padding="3dp"
+                app:srcCompat="@drawable/ic_edit_white_24dp"
+                app:tint="@android:color/white"
+                tools:ignore="ContentDescription" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/header_default_device_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_2"
+            android:ellipsize="end"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:maxLines="1"
+            android:paddingStart="@dimen/grid_2"
+            android:paddingEnd="@dimen/grid_2"
+            android:text="@string/unknown"
+            android:textColor="?attr/colorSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_container" />
+
+        <TextView
+            android:id="@+id/header_default_device_version_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_1"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/colorSurface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_default_device_name_text"
+            tools:text="1.0 DEBUG" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

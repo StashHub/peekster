@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <plurals name="service_transfer_server_transferring_text">
+        <item quantity="one">%1$d transfer in progress</item>
+        <item quantity="other">%1$d transfers in progress</item>
+    </plurals>
+</resources>

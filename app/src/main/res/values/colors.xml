@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#091B41</color>
+    <color name="lite_gray">#AFB1C0</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color> <!--#010815 -->
+    <color name="colorAccent">#E46400</color>
+    <color name="colorAccentDark">#1AE46400</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background_color">#010815</color>
+    <color name="background_color_db">#04122E</color>
+    <color name="black_trans">#90000000</color>
+    <color name="colorPrimaryDark_trans">#99020A1B</color>
+    <color name="transparent">#0024272B</color>
+    <color name="mid_gray">#374665</color>
+    <color name="colorSelection">#20000000</color>
+    <color name="colorPassive">@color/mid_gray</color>
+    <color name="black">#000</color>
+    <color name="white_alpha_060">#99FFFFFF</color>
+    <color name="colorSuccess">#1B5E20</color>
+    <color name="colorError">#D50000</color>
+
+    <color name="poster_overlay">#90000000</color>
+    <color name="dark_color_shadow_end">#500E171A</color>
+    <color name="dark_color_shadow_beginning">#000E171A</color>
+
+    <array name="peekster_theme">
+        <!-- Overview -->
+        <item>#010815</item> <!--  Top Header bg -->
+        <item>#ffffff</item> <!-- header text   -->
+        <item>#04122E</item> <!-- list bg  -->
+        <item>@android:color/white</item> <!--  storage list name text  -->
+        <item>#e1e1e1</item> <!-- free space text  -->
+        <item>#E46400</item> <!-- memory bar -->
+
+        <!-- secondary dialog colors -->
+        <item>#E46400</item> <!-- folder tint -->
+        <item>#010815</item> <!-- list bg -->
+        <item>@android:color/white</item> <!-- list text -->
+        <item>#010815</item> <!-- address bar tint -->
+        <item>@android:color/transparent</item> <!-- new folder hint tint -->
+        <item>#E46400</item> <!-- select button color -->
+        <item>#010815</item> <!-- new folder layout bg -->
+        <item>#E46400</item> <!-- fab multi color -->
+        <item>#010815</item> <!-- address bar bg -->
+    </array>
+
+</resources>
